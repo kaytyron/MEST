@@ -31,7 +31,6 @@ class School():
 
 
 class Person:
-
 	def __init__(self, name, nationality):
 		self.name = name
 		self.nationality =nationality
@@ -41,10 +40,6 @@ class Eit(Person):
 	def __init__(self, name, nationality):
 		self.funfact_holder = list()
 		super.__init__(name, nationality)
-
-	# super().set_name(name, nationality)
-
-	# super().set_nationality(self,nationality)
 
 	def add_funfact(self,funfact):
 		self.funfact = funfact
