@@ -31,23 +31,20 @@ class School():
 
 
 class Person:
-	def set_name(self,name):
-		self.name = name
 
-	def set_nationality(self,nationality):
-		self.nationality = nationality
+	def __init__(self, name, nationality):
+		self.name = name
+		self.nationality =nationality
 
 
 class Eit(Person):
-	def __init__(self):
+	def __init__(self, name, nationality):
 		self.funfact_holder = list()
-		super.__init__()
+		super.__init__(name, nationality)
 
-	def set_name(self,name):
-		self.name = name
+	# super().set_name(name, nationality)
 
-	def set_nationality(self,nationality):
-		self.nationality = nationality
+	# super().set_nationality(self,nationality)
 
 	def add_funfact(self,funfact):
 		self.funfact = funfact
@@ -62,15 +59,9 @@ class Eit(Person):
 
 
 class Fellow(Person):
-	def __init__(self):
+	def __init__(self, name, nationality):
 		self.happiness_code = 0
-		super.__init__()
-
-	def set_name(self,name):
-		self.name = name
-
-	def set_nationality(self,nationality):
-		self.nationality = nationality
+		super.__init__(name, nationality)
 
 	def eat(self, food):
 		happiness_code += 1
