@@ -1,19 +1,19 @@
 import random
 
 class School():
-	def __init__(self):
+
+
+	def __init__(self, school):
 		self.eit_list = list()
 		self.fellow_list = list()
-	
-	def set_schoolname(self,school):
 		self.school = school
 
 
 	def add_eit(self,Eit):
-		eit_list.append(Eit)
+		self.eit_list.append(Eit)
 
 	def add_fellow(self,Fellow):
-		fellow_list.append(Fellow)
+		self.fellow_list.append(Fellow)
 
 	def display_eits(self):
 		print("EIT LIST:")
@@ -33,40 +33,68 @@ class School():
 class Person:
 	def __init__(self, name, nationality):
 		self.name = name
-		self.nationality =nationality
+		self.nationality = nationality
 
 
 class Eit(Person):
 	def __init__(self, name, nationality):
 		self.funfact_holder = list()
-		super.__init__(name, nationality)
+		super().__init__(name, nationality)
 
 	def add_funfact(self,funfact):
 		self.funfact = funfact
 		self.funfact_holder.append(self.funfact)
 
 	def recite_funfact(self):
-		print(random.choice(self.funfact_holder()))
+		print(random.choice(self.funfact_holder))
 
 	def get_eit(self):
-		print("EIT name: {0}\n EIT Nationality: {1} \n".format(self.name, self.nationality))
+		print("EIT name: {0}\nEIT Nationality: {1} \n".format(self.name, self.nationality))
 
 
 
 class Fellow(Person):
+	fellow_number = 0
+
 	def __init__(self, name, nationality):
-		self.happiness_code = 0
-		super.__init__(name, nationality)
+
+		if Fellow.fellow_number > 3:
+			raise Exception("We are not hiring anymore")
+		else:
+			self.happiness_code = 0
+			super().__init__(name, nationality)
+			Fellow.fellow_number += 1
+
+
 
 	def eat(self, food):
-		happiness_code += 1
+		self.happiness_code += 1
+		print("Happiness Level Increased!\n")
+
+	def teach(self, lesson):
+		self.happiness_code -= 1
 		print("Happiness Level Increased!\n")
 
 	def happiness_level(self):
-		print("Happiness Level = {}\n".format(happiness_code))
+		print("Happiness Level = {}\n".format(self.happiness_code))
 
 	def get_fellow(self):
-		print("Fellow name: {0}\n EIT Nationality: {1}\n".format(self.name, self.nationality))
+		print("Fellow name: {0}\nEIT Nationality: {1}\n".format(self.name, self.nationality))
 
+
+
+
+
+Kelvin = Eit("Kelvin", "Ghanaian")
+Andrew = Fellow("Andrew", "American")
+MEST = School("MEST")
+
+MEST = School("MEST")
+
+MEST.add_eit(Kelvin)
+MEST.add_fellow(Andrew)
+
+MEST.display_eits()
+MEST.display_fellows()
 
 
