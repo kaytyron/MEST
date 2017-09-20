@@ -35,6 +35,9 @@ class Person:
 		self.name = name
 		self.nationality = nationality
 
+	def __repr__(self):
+		return "Name: {}\nNationality: {}\n".format(self.name, self.nationality)
+
 
 class Eit(Person):
 	def __init__(self, name, nationality):
@@ -57,13 +60,16 @@ class Fellow(Person):
 	fellow_number = 0
 
 	def __init__(self, name, nationality):
+		try:
+			if Fellow.fellow_number > 3:
+				raise Exception("We are not hiring anymore")
+			else:
+				self.happiness_code = 0
+				super().__init__(name, nationality)
+				Fellow.fellow_number += 1
 
-		if Fellow.fellow_number > 3:
-			raise Exception("We are not hiring anymore")
-		else:
-			self.happiness_code = 0
-			super().__init__(name, nationality)
-			Fellow.fellow_number += 1
+		except Exception:
+			print("We are not hiring anymore")
 
 
 
@@ -85,16 +91,24 @@ class Fellow(Person):
 
 
 
+
+
 Kelvin = Eit("Kelvin", "Ghanaian")
-Andrew = Fellow("Andrew", "American")
-MEST = School("MEST")
+print(Kelvin)
+# Andrew = Fellow("Andrew", "American")
+# Miishe = Fellow("Miishe", "Ghanaian")
+# Francis = Fellow ("Francis", "Ghanaian")
+# Edem = Fellow("Edem", "Ghanaian")
+# Pascal = Fellow("Pascal", "DRC")
 
-MEST = School("MEST")
+# MEST = School("MEST")
 
-MEST.add_eit(Kelvin)
-MEST.add_fellow(Andrew)
+# MEST = School("MEST")
 
-MEST.display_eits()
-MEST.display_fellows()
+# MEST.add_eit(Kelvin)
+# MEST.add_fellow(Andrew)
+
+# MEST.display_eits()
+# MEST.display_fellows()
 
 
