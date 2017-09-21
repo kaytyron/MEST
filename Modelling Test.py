@@ -2,7 +2,6 @@ import random
 
 class School():
 
-
 	def __init__(self, school):
 		self.eit_list = list()
 		self.fellow_list = list()
@@ -60,6 +59,7 @@ class Fellow(Person):
 	fellow_number = 0
 
 	def __init__(self, name, nationality):
+
 		try:
 			if Fellow.fellow_number > 3:
 				raise Exception("We are not hiring anymore")
@@ -79,7 +79,7 @@ class Fellow(Person):
 
 	def teach(self, lesson):
 		self.happiness_code -= 1
-		print("Happiness Level Increased!\n")
+		print("Happiness Level Decreased!\n")
 
 	def happiness_level(self):
 		print("Happiness Level = {}\n".format(self.happiness_code))
